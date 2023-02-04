@@ -1,11 +1,9 @@
-local width = 20
-local height = 10
+local width = 50
+local height = 15
 
-for y=1, height do
-  for x=1, width do
-    if y == 1 or y == height or x == 1 or x == width then
-      term.setCursorPos(x, y)
-      print("*")
-    end
-  end
+for x=1, width do
+  local y = math.sin(x / width * math.pi * 2) * height + height
+  y = math.floor(y)
+  term.setCursorPos(x, y)
+  print("*")
 end
