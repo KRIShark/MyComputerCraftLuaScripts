@@ -1,11 +1,11 @@
 local depth = 0
 local maxdepth = 10
-
-
-while true do
+local slot = 2
+--not finished
+while EnoughtFuel() do
     if turtle.getFuelLevel == 0 then
         print("Refuel")
-        turtle.select(1)
+        turtle.select(0)
         turtle.refuel()
         if turtle.getFuelLevel == 0 then
             break
@@ -32,4 +32,9 @@ while true do
         depth = depth + 1
     end
     turtle.forward()
+end
+
+function EnoughtFuel()
+    turtle.select(1)
+    return 10 < turtle.getItemCount()
 end
