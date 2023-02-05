@@ -6,19 +6,21 @@ local countWidth = 0
 
 
 while true do
-    if turtle.getFuelLevel == 0 then
+    if turtle.getFuelLevel() == 0 then
         print("Refuel")
-        turtle.select(0)
+        turtle.select(1)
         turtle.refuel()
-        if turtle.getFuelLevel == 0 then
+        if turtle.getFuelLevel() == 0 then
             break
         end
     end
     if turtle.detect() then
+        print("attack")
         turtle.attack()
     end
 
     if length < countLength then
+        print("face backword")
         turtle.turnLeft()
         turtle.forward()
         turtle.turnLeft()
@@ -27,6 +29,7 @@ while true do
     end
 
     if countLength then
+        print("return")
         for i = 1, length, 1 do
             turtle.forward()
         end
